@@ -1,0 +1,6 @@
+# ninja log v6
+40	1162	8106605309275698	CMakeFiles/openglproject_new.dir/main.cpp.obj	9d94a999fa41a1e7
+1031	1222	8106424943351353	openglproject_new.exe	4091a0e2237c38e0
+10	182	8106607667981962	build.ninja	c97e2706e661bd61
+10	182	8106607667981962	C:/repos/openglproject/build/cmake_install.cmake	c97e2706e661bd61
+34	365	8106607668777242	openglproject_new.exe	dd7826096be6e53f

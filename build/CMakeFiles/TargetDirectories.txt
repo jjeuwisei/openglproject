@@ -1,0 +1,3 @@
+C:/repos/openglproject/build/CMakeFiles/openglproject_new.dir
+C:/repos/openglproject/build/CMakeFiles/edit_cache.dir
+C:/repos/openglproject/build/CMakeFiles/rebuild_cache.dir
