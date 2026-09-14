@@ -13,14 +13,20 @@ using namespace std;
 #define MAX_BONE_INFLUENCE 4
 
 struct Vertex {
-  glm::vec3 Positions;
+  glm::vec3 Position;
   glm::vec3 Normal;
-  glm::vec3 TexCoords;
+  glm::vec2 TexCoords;
+  glm::vec3 Tangent;
+  glm::vec3 Bitangent;
+    
+    int m_BoneIDs[MAX_BONE_INFLUENCE];
+    int m_Weights[MAX_BONE_INFLUENCE];
 };
 
 struct Texture {
-  unsigned int ID;
+  unsigned int id;
   string type;
+  string path;
 }; 
 
 class Mesh {
@@ -38,24 +44,30 @@ class Mesh {
       setupMesh();
     }
     void Draw(Shader &shader){
-      unsigned int nrDiffuse = 1;
-      unsigned int nrSpecular = 1;
-      for (unsigned int i = 0; textures.size() ; i++) {
+      unsigned int diffuseNr = 1;
+      unsigned int specularNr = 1;
+      unsigned int normalNr = 1;
+      unsigned int heightNr = 1;
+      for (unsigned int i = 0; i < textures.size() ; i++) {
         glActiveTexture(GL_TEXTURE0 + i);
         string number;
         string name = textures[i].type;
         if (name == "texture_diffuse") 
-            number = std::to_string(nrDiffuse++);
+            number = std::to_string(diffuseNr++);
         else if (name == "texture_specular")
-            number = std::to_string(nrSpecular++);
+            number = std::to_string(specularNr++);
+        else if (name == "texture_normal") 
+            number = std::to_string(normalNr++);
+        else if (name == "texture_height")
+            number = std::to_string(heightNr++);
 
         shader.setInt(("material." + name + number).c_str(), i);
-        glBindTexture(GL_TEXTURE_2D, textures[i].ID); 
+        glBindTexture(GL_TEXTURE_2D, textures[i].id); 
       }
       glActiveTexture(GL_TEXTURE0);
 
       glBindVertexArray(VAO);
-      glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
+      glDrawElements(GL_TRIANGLES, static_cast<unsigned int>(indices.size()), GL_UNSIGNED_INT, 0);
       glBindVertexArray(0);
     };
   private:

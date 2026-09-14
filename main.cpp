@@ -3,11 +3,9 @@
 #include <iostream>
 #include "shader.h"
 #include "camera.h"
+#include "model.h"
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
-#include <string.h>
-#include <assimp/Importer.hpp>
-#include <assimp/version.h>
 
 Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
 
@@ -135,7 +133,7 @@ int main(int argc, char* argv[]) {
     };
     Shader ourShader("vertexShader.glsl", "fragmentShader.glsl");
     Shader lightShader("lightvertShader.glsl", "lightfragShader.glsl");
-    
+    Shader modelShader("modelfragshader.glsl", "modelshader.glsl");
     GLuint VAO[2];
     GLuint VBO;
     
@@ -217,9 +215,8 @@ int main(int argc, char* argv[]) {
     glm::vec3 plasticSpecular = glm::vec3(0.7, 0.6, 0.6);	
     const float plasticShininess = 32.0;
     const float goldShininess = 51.2;
-    Assimp::Importer importer;
-    std:: cout << "Assimp version: " << aiGetVersionMajor() << "." 
-      << aiGetVersionMinor() << std::endl;
+    Model ourModel("./backpack/backpack.obj");
+
     while (!glfwWindowShouldClose(window)) {
         float currentFrame = static_cast<float>(glfwGetTime());
         deltaTime = currentFrame - lastFrame;
@@ -238,45 +235,58 @@ int main(int argc, char* argv[]) {
 
         glm::mat4 model = glm::mat4(1.0f);
         
+        model = glm::translate(model, glm::vec3(0.3f));
         glm::mat4 projection = glm::perspective(glm::radians(90.0f), 
             (float)WIDTH / (float)HEIGHT, 0.1f, 100.0f);
         glm::mat4 view = camera.get_view_matrix();
-
         ourShader.use();
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, diffuseMap);
+
+        glActiveTexture(GL_TEXTURE1);
+        glBindTexture(GL_TEXTURE_2D, specularMap);
         ourShader.setVec3("viewPos", camera.Position); 
         ourShader.setMat4("view", view);
         ourShader.setVec3("objectColor", objectColor);
         ourShader.setVec3("lightColor", lightColor);
-        ourShader.setMat4("projection", projection);
-        ourShader.setFloat("material.shininess",  goldShininess);
-        ourShader.setVec3("light.position", camera.Position);
-        ourShader.setVec3("light.ambient", glm::vec3(0.1f));
-        ourShader.setVec3("light.diffuse", lightColor);
-        ourShader.setVec3("light.specular", glm::vec3(1.0f));
-        ourShader.setVec3("light.direction", camera.Front);
-        ourShader.setVec3("spLight.direction", camera.Front);
-        ourShader.setVec3("spLight.position", camera.Position);
-        glBindVertexArray(VAO[0]);
-        for(unsigned int i = 0; i < 10; i++) {
+         ourShader.setMat4("projection", projection);
+         ourShader.setFloat("material.shininess",  goldShininess);
+         ourShader.setVec3("light.position", camera.Position);
+         ourShader.setVec3("light.ambient", glm::vec3(0.1f));
+         ourShader.setVec3("light.diffuse", lightColor);
+         ourShader.setVec3("light.specular", glm::vec3(1.0f));
+         ourShader.setVec3("light.direction", camera.Front);
+         ourShader.setVec3("spLight.direction", camera.Front);
+         ourShader.setVec3("spLight.position", camera.Position);
+         glBindVertexArray(VAO[0]);
+         for(unsigned int i = 0; i < 10; i++) {
+           model = glm::mat4(1.0f);
+           model = glm::translate(model, cubePositions[i]);
+           ourShader.setMat4("model", model);
+           glDrawArrays(GL_TRIANGLES, 0, 36);
+         }
           model = glm::mat4(1.0f);
-          model = glm::translate(model, cubePositions[i]);
-          ourShader.setMat4("model", model);
-          glDrawArrays(GL_TRIANGLES, 0, 36);
-        }
-        lightShader.use();
-        lightShader.setMat4("view", view);
-        lightShader.setMat4("projection", projection);
-        for(unsigned int i = 0; i < 4; i++) {
-          model = glm::mat4(1.0f); 
-          model = glm::translate(model, pLight[i]);
-          lightShader.setMat4("model", model);
-          lightShader.setVec3("lightPos", pLight[i]);
-          lightShader.setVec3("lightColor", pDiff[i]);
-          glBindVertexArray(VAO[1]);
-          glDrawArrays(GL_TRIANGLES, 0, 36);
-        }
-        glfwSwapBuffers(window);
-        glfwPollEvents();
+          model = glm::translate(model, glm::vec3(0.5f));
+          model = glm::scale(model, glm::vec3(0.4f));
+          modelShader.use();
+          modelShader.setMat4("model", model);
+          modelShader.setMat4("projection", projection);
+          modelShader.setMat4("view", view);
+          ourModel.Draw(modelShader);
+          lightShader.use();
+          lightShader.setMat4("view", view);
+          lightShader.setMat4("projection", projection);
+          for(unsigned int i = 0; i < 4; i++) {
+           model = glm::mat4(1.0f); 
+           model = glm::translate(model, pLight[i]);
+           lightShader.setMat4("model", model);
+           lightShader.setVec3("lightPos", pLight[i]);
+           lightShader.setVec3("lightColor", pDiff[i]);
+           glBindVertexArray(VAO[1]);
+           glDrawArrays(GL_TRIANGLES, 0, 36);
+         }
+          glfwSwapBuffers(window);
+          glfwPollEvents();
     }
     glDeleteVertexArrays(2, VAO);
     glDeleteBuffers(1, &VBO);
