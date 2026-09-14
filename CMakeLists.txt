@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(openglproject_new CXX)
+project(advance_opengl CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON) # Generates compile_commands.json for clangd
@@ -10,9 +10,9 @@ find_package(GLEW REQUIRED)
 find_package(glm CONFIG REQUIRED)
 find_package(assimp CONFIG REQUIRED)
 
-add_executable(openglproject_new main.cpp shader.h)
+add_executable(advance_opengl advanceopenglchapter/main.cpp shader.h)
 
-target_link_libraries(openglproject_new PRIVATE 
+target_link_libraries(advance_opengl PRIVATE 
     OpenGL::GL
     glfw
     GLEW::GLEW

@@ -54,6 +54,7 @@ int main(int argc, char* argv[]) {
     }
 
     glEnable(GL_DEPTH_TEST);
+    glEnable(GL_STENCIL_TEST);
 
     std::cout << "OpenGL Version: " << glGetString(GL_VERSION) << std::endl;
     
@@ -216,6 +217,8 @@ int main(int argc, char* argv[]) {
     const float plasticShininess = 32.0;
     const float goldShininess = 51.2;
     Model ourModel("./backpack/backpack.obj");
+
+
 
     while (!glfwWindowShouldClose(window)) {
         float currentFrame = static_cast<float>(glfwGetTime());

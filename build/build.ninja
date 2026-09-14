@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: openglproject_new
+# Project: advance_opengl
 # Configurations: Debug
 # =============================================================================
 
@@ -41,47 +41,47 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = C$:/repos/openglproject/build/
 # =============================================================================
-# Object build statements for EXECUTABLE target openglproject_new
+# Object build statements for EXECUTABLE target advance_opengl
 
 
 #############################################
-# Order-only phony target for openglproject_new
+# Order-only phony target for advance_opengl
 
-build cmake_object_order_depends_target_openglproject_new: phony || .
+build cmake_object_order_depends_target_advance_opengl: phony || .
 
-build CMakeFiles/openglproject_new.dir/main.cpp.obj: CXX_COMPILER__openglproject_new_unscanned_Debug C$:/repos/openglproject/main.cpp || cmake_object_order_depends_target_openglproject_new
+build CMakeFiles/advance_opengl.dir/advanceopenglchapter/main.cpp.obj: CXX_COMPILER__advance_opengl_unscanned_Debug C$:/repos/openglproject/advanceopenglchapter/main.cpp || cmake_object_order_depends_target_advance_opengl
   CONFIG = Debug
   DEFINES = -DGLFW_DLL
-  DEP_FILE = CMakeFiles\openglproject_new.dir\main.cpp.obj.d
+  DEP_FILE = CMakeFiles\advance_opengl.dir\advanceopenglchapter\main.cpp.obj.d
   FLAGS = -O0 -g -Xclang -gcodeview -std=gnu++17 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd
   INCLUDES = -isystem C:/vcpkg/installed/x64-windows/include
-  OBJECT_DIR = CMakeFiles\openglproject_new.dir
-  OBJECT_FILE_DIR = CMakeFiles\openglproject_new.dir
-  TARGET_COMPILE_PDB = CMakeFiles\openglproject_new.dir\
-  TARGET_PDB = openglproject_new.pdb
-  TARGET_SUPPORT_DIR = CMakeFiles\openglproject_new.dir
+  OBJECT_DIR = CMakeFiles\advance_opengl.dir
+  OBJECT_FILE_DIR = CMakeFiles\advance_opengl.dir\advanceopenglchapter
+  TARGET_COMPILE_PDB = CMakeFiles\advance_opengl.dir\
+  TARGET_PDB = advance_opengl.pdb
+  TARGET_SUPPORT_DIR = CMakeFiles\advance_opengl.dir
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target openglproject_new
+# Link build statements for EXECUTABLE target advance_opengl
 
 
 #############################################
-# Link the executable openglproject_new.exe
+# Link the executable advance_opengl.exe
 
-build openglproject_new.exe: CXX_EXECUTABLE_LINKER__openglproject_new_Debug CMakeFiles/openglproject_new.dir/main.cpp.obj | C$:/vcpkg/installed/x64-windows/debug/lib/glfw3dll.lib C$:/vcpkg/installed/x64-windows/debug/lib/glew32d.lib C$:/vcpkg/installed/x64-windows/debug/lib/glm.lib C$:/vcpkg/installed/x64-windows/debug/lib/assimp-vc145-mtd.lib
+build advance_opengl.exe: CXX_EXECUTABLE_LINKER__advance_opengl_Debug CMakeFiles/advance_opengl.dir/advanceopenglchapter/main.cpp.obj | C$:/vcpkg/installed/x64-windows/debug/lib/glfw3dll.lib C$:/vcpkg/installed/x64-windows/debug/lib/glew32d.lib C$:/vcpkg/installed/x64-windows/debug/lib/glm.lib C$:/vcpkg/installed/x64-windows/debug/lib/assimp-vc145-mtd.lib
   CONFIG = Debug
   FLAGS = -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd
   LINK_FLAGS = -Xlinker /subsystem:console -fuse-ld=lld
   LINK_LIBRARIES = -lopengl32.lib  C:/vcpkg/installed/x64-windows/debug/lib/glfw3dll.lib  C:/vcpkg/installed/x64-windows/debug/lib/glew32d.lib  C:/vcpkg/installed/x64-windows/debug/lib/glm.lib  C:/vcpkg/installed/x64-windows/debug/lib/assimp-vc145-mtd.lib  -lopengl32.lib  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 -loldnames
-  OBJECT_DIR = CMakeFiles\openglproject_new.dir
-  POST_BUILD = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\repos\openglproject\build && C:\vcpkg\vcpkg.exe z-applocal --target-binary=C:/repos/openglproject/build/openglproject_new.exe --installed-bin-dir=C:/vcpkg/installed/x64-windows/debug/bin"
+  OBJECT_DIR = CMakeFiles\advance_opengl.dir
+  POST_BUILD = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\repos\openglproject\build && C:\vcpkg\vcpkg.exe z-applocal --target-binary=C:/repos/openglproject/build/advance_opengl.exe --installed-bin-dir=C:/vcpkg/installed/x64-windows/debug/bin"
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = CMakeFiles\openglproject_new.dir\
-  TARGET_FILE = openglproject_new.exe
-  TARGET_IMPLIB = openglproject_new.lib
-  TARGET_PDB = openglproject_new.pdb
-  TARGET_SUPPORT_DIR = CMakeFiles\openglproject_new.dir
+  TARGET_COMPILE_PDB = CMakeFiles\advance_opengl.dir\
+  TARGET_FILE = advance_opengl.exe
+  TARGET_IMPLIB = advance_opengl.lib
+  TARGET_PDB = advance_opengl.pdb
+  TARGET_SUPPORT_DIR = CMakeFiles\advance_opengl.dir
 
 
 #############################################
@@ -110,7 +110,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build openglproject_new: phony openglproject_new.exe
+build advance_opengl: phony advance_opengl.exe
 
 # =============================================================================
 # Folder targets.
@@ -120,7 +120,7 @@ build openglproject_new: phony openglproject_new.exe
 #############################################
 # Folder: C:/repos/openglproject/build
 
-build all: phony openglproject_new.exe
+build all: phony advance_opengl.exe
 
 # =============================================================================
 # Built-in targets

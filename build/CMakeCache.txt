@@ -131,7 +131,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=openglproject_new
+CMAKE_PROJECT_NAME:STATIC=advance_opengl
 
 //Value Computed by CMake
 CMAKE_PROJECT_SPDX_LICENSE:STATIC=
@@ -281,6 +281,24 @@ Z_VCPKG_CL:FILEPATH=Z_VCPKG_CL-NOTFOUND
 //The directory which contains the installed libraries for each
 // triplet
 _VCPKG_INSTALLED_DIR:PATH=C:/vcpkg/installed
+
+//Value Computed by CMake
+advance_opengl_BINARY_DIR:STATIC=C:/repos/openglproject/build
+
+//Value Computed by CMake
+advance_opengl_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+advance_opengl_SOURCE_DIR:STATIC=C:/repos/openglproject
+
+//Value Computed by CMake
+advanced_opengl_BINARY_DIR:STATIC=C:/repos/openglproject/build
+
+//Value Computed by CMake
+advanced_opengl_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+advanced_opengl_SOURCE_DIR:STATIC=C:/repos/openglproject
 
 //The directory containing a CMake configuration file for assimp.
 assimp_DIR:PATH=C:/vcpkg/installed/x64-windows/share/assimp
