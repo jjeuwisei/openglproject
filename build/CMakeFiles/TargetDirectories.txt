@@ -1,3 +1,0 @@
-C:/repos/openglproject/build/CMakeFiles/advance_opengl.dir
-C:/repos/openglproject/build/CMakeFiles/edit_cache.dir
-C:/repos/openglproject/build/CMakeFiles/rebuild_cache.dir

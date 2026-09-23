@@ -1,8 +1,0 @@
-[
-{
-  "directory": "C:/repos/openglproject/build",
-  "command": "\"C:\\Program Files\\LLVM\\bin\\clang++.exe\" -DGLFW_DLL -isystem C:/vcpkg/installed/x64-windows/include -O0 -g -Xclang -gcodeview -std=gnu++17 -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -o CMakeFiles\\advance_opengl.dir\\advanceopenglchapter\\main.cpp.obj -c C:\\repos\\openglproject\\advanceopenglchapter\\main.cpp",
-  "file": "C:/repos/openglproject/advanceopenglchapter/main.cpp",
-  "output": "C:/repos/openglproject/build/CMakeFiles/advance_opengl.dir/advanceopenglchapter/main.cpp.obj"
-}
-]
