@@ -10,7 +10,7 @@ find_package(GLEW REQUIRED)
 find_package(glm CONFIG REQUIRED)
 find_package(assimp CONFIG REQUIRED)
 
-add_executable(advance_opengl advanceopenglchapter/main.cpp shader.h)
+add_executable(advance_opengl advanceopenglchapter/main.cpp)
 
 target_link_libraries(advance_opengl PRIVATE 
     OpenGL::GL
