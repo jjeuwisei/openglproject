@@ -10,7 +10,8 @@ uniform vec3 CameraPos;
 
 void main() 
 {
+  float ratio = 1.0 / 2.42;
   vec3 I = normalize(Position - CameraPos);
-  vec3 R = reflect(I, normalize(Normal));
+  vec3 R = refract(I, normalize(Normal), ratio);
   fragColor = texture(skybox, R);
 }
